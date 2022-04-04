@@ -32,19 +32,20 @@ class Converter {
         pound: 0.0022046226,//  Pound                  // Weight
         oz: 0.0352739619,   //  Ounce
     };
-
+ 
     convertToMetric = (n, u) => this.baseM[u] * n;
 
-
-    metricSystem (n) {
+    metricSystem (n, u) {
 
         // Meter / Gram / Liter
         // Square Meter = return**2
         // Cubic Meter = return**3
     
+        const bM = this.convertToMetric(n, u);
+
         const arr = [];
     
-        for (let i = 3; i > -4; i--) arr.push(n*10**i);
+        for (let i = 3; i > -4; i--) arr.push(bM*10**i);
     
         return arr;
     }
@@ -75,6 +76,48 @@ class Converter {
         }
     
         return formulas[u]()
+    }
+
+    getLengthMetric () {
+        return ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm']
+    }
+    getWightMetric () {
+        return ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg']
+    }
+    getLengthMetric () {
+        return ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml']
+    }
+    getLengthUs () {
+        return ['ml', 'yd', 'ft', 'in']
+    }
+    getLengthUs () {
+        return ['pd', 'oz']
+    }
+    getLengthUs () {
+        return ['qt', 'pt', 'cp', 'fl.oz']
+    }
+
+    getLengthMetric () {
+        return [
+            'kilometer', 'hectometer', 'decameter', 
+            'meter', 'decimeter', 'centimeter', 'millimeter']
+    }
+    getWightMetric () {
+        return ['kilogram', 'hectogram', 'decagram', 
+                'gram', 'decigram', 'centigram', 'milligram']
+    }
+    getLengthMetric () {
+        return ['kiloliter', 'hectoliter', 'decaliter', 
+                'liter', 'deciliter', 'centiliter', 'milliliter']
+    }
+    getLengthUs () {
+        return ['mile', 'yard', 'foot', 'inch']
+    }
+    getLengthUs () {
+        return ['pound', 'ounce']
+    }
+    getLengthUs () {
+        return ['quatre', 'pint', 'cup', 'fluid ounce']
     }
 }
 
