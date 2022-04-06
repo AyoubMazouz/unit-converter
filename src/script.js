@@ -86,18 +86,20 @@ class Converter {
         return {
             'l': arr.slice(0, 4),
             'w': arr.slice(4, 6),
-            'v': arr.slice(7, 9)
+            'v': arr.slice(6, 10)
         }[t]
     }
 
     temperature(n, u) {
 
+        if (!u) return [NaN, NaN, NaN]
+
         // Celsius / Fahrenheit / Kelvin
 
         const formulas = {
-            celsius: () => [(n * 1.8) + 32, (n + 273.15)],
-            fahrenheit: () => [(n - 32) * 1.8, (n + 459.67) * (5 / 9)],
-            kelvin: () => [(n - 273.15), (n - 273.15) * (9 / 5) + 32],
+            c: () => [n, (n * 1.8) + 32, (n + 273.15)],
+            f: () => [(n - 32) * 1.8, n, (n + 459.67) * (5 / 9)],
+            k: () => [(n - 273.15), (n - 273.15) * (9 / 5) + 32, n],
         };
 
         return formulas[u]();
@@ -110,6 +112,7 @@ class Converter {
     getWeightUs = () => ['pd', 'oz'];
     getVolumeUs = () => ['qt', 'pt', 'cp', 'flOz'];
 
+    getTemperature = () => ['c', 'f', 'k'];
 
     getLengthMetricFull = () => ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
     getWeightMetricFull = () => ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
@@ -117,6 +120,9 @@ class Converter {
     getLengthUsFull = () => ['mile', 'yard', 'foot', 'inch'];
     getWeightUsFull = () => ['pound', 'ounce'];
     getVolumeUsFull = () => ['quatre', 'pint', 'cup', 'fluid ounce'];
+
+    getTemperatureFull = () => ['celsius', 'fahrenheit', 'kelvin'];
+
 }
 
 export default Converter;

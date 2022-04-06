@@ -3,6 +3,7 @@ import './App.css';
 import Table from './components/Table';
 import InputField from './components/InputField';
 import Details from './components/Details';
+import Tabs from './components/Tabs';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
 
 			<InputField input={input} setInput={setInput} setDropDown={setDropDown} tab={tab} />
+			<Tabs setTab={setTab} setInput={setInput} setDropDown={setDropDown} />
 			<Table input={input} dropDown={dropDown} tab={tab} />
 			<Details />
 

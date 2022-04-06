@@ -4,20 +4,24 @@ import Converter from '../script';
 
 const InputField = ({ input, setInput, setDropDown, tab }) => {
 
-    const converter = new Converter();
+    const c = new Converter();
 
     const units = [
         [
-            converter.getLengthMetricFull().concat(converter.getLengthUsFull()),
-            converter.getLengthMetric().concat(converter.getLengthUs()),
+            c.getLengthMetricFull().concat(c.getLengthUsFull()),
+            c.getLengthMetric().concat(c.getLengthUs()),
         ],
         [
-            converter.getWeightMetricFull().concat(converter.getWeightUsFull()),
-            converter.getWeightMetric().concat(converter.getWeightUs()),
+            c.getWeightMetricFull().concat(c.getWeightUsFull()),
+            c.getWeightMetric().concat(c.getWeightUs()),
         ],
         [
-            converter.getVolumeMetricFull().concat(converter.getVolumeUsFull()),
-            converter.getVolumeMetric().concat(converter.getVolumeUs()),
+            c.getVolumeMetricFull().concat(c.getVolumeUsFull()),
+            c.getVolumeMetric().concat(c.getVolumeUs()),
+        ],
+        [
+            c.getTemperatureFull(),
+            c.getTemperature(),
         ],
     ]
 
@@ -53,7 +57,7 @@ const DropDown = ({ setDropDown, tab, units }) => {
         <select onChange={e => setDropDown(e.target.value)}
             className='h-10 bg-gray-50 focus:outline-none ring-2 ring-emerald-700 focus:ring-4 focus:ring-emerald-500 rounded-sm shadow-lg'>
 
-            <option>Select a unit...</option>
+            <option value={false}>Select a unit...</option>
 
             {units[tab][0].map((uFull, i) =>
                 <option key={i}
