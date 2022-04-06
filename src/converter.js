@@ -54,6 +54,12 @@ class Converter {
         flOz: 33.814038638, //  Fluid Ounce                                    
     };
 
+    temperatureFormulas = {
+        c: n => [n, (n * 1.8) + 32, (n + 273.15)],             // Celsius.
+        f: n => [(n - 32) * 1.8, n, (n + 459.67) * (5 / 9)],   // Fahrenheit.    
+        k: n => [(n - 273.15), (n - 273.15) * (9 / 5) + 32, n],// Kelvin.
+    }
+
     convertToMetric = (n, u) => this.baseM[u] * n;
 
     metricSystem(n, u) {
@@ -96,13 +102,7 @@ class Converter {
 
         // Celsius / Fahrenheit / Kelvin
 
-        const formulas = {
-            c: () => [n, (n * 1.8) + 32, (n + 273.15)],
-            f: () => [(n - 32) * 1.8, n, (n + 459.67) * (5 / 9)],
-            k: () => [(n - 273.15), (n - 273.15) * (9 / 5) + 32, n],
-        };
-
-        return formulas[u]();
+        return this.temperatureFormulas[u](n);
     }
 
     getLengthMetric = () => ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];

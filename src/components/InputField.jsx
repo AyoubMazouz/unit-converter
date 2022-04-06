@@ -1,5 +1,5 @@
 import { useState, useEffect, useDebugValue } from 'react';
-import Converter from '../script';
+import Converter from '../converter';
 
 
 const InputField = ({ input, setInput, setDropDown, tab }) => {

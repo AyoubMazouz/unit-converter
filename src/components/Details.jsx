@@ -1,9 +1,9 @@
 import { useState, useEffect, useDebugValue } from 'react';
-import Converter from '../script';
+import Converter from '../converter';
 
 const Details = ({ input, setInput, setDropDown, tab }) => {
 
-    const converter = new Converter();
+    const c = new Converter();
 
     return (
         <div>

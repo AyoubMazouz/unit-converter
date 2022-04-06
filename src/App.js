@@ -19,7 +19,7 @@ function App() {
 
 
 			<InputField input={input} setInput={setInput} setDropDown={setDropDown} tab={tab} />
-			<Tabs setTab={setTab} setInput={setInput} setDropDown={setDropDown} />
+			<Tabs tab={tab} setTab={setTab} setInput={setInput} setDropDown={setDropDown} />
 			<Table input={input} dropDown={dropDown} tab={tab} />
 			<Details />
 

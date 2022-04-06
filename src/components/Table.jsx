@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Converter from '../script';
+import Converter from '../converter';
 
 
 const Table = ({ input, dropDown, tab }) => {

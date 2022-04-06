@@ -2,7 +2,7 @@
 
 
 
-const Tabs = ({ setTab, setInput, setDropDown }) => {
+const Tabs = ({ tab, setTab, setInput, setDropDown }) => {
 
 
     const onChange = t => {
@@ -14,19 +14,23 @@ const Tabs = ({ setTab, setInput, setDropDown }) => {
 
     return (
 
-        <div>
+        <div className='tabs-btns space-x-4'>
 
-            <button onClick={() => onChange(0)}
+            <button className={tab === 0 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(0)}
             >Length</button>
 
-            <button onClick={() => onChange(1)}
+            <button className={tab === 1 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(1)}
             >Weight</button>
 
-            <button onClick={() => onChange(2)}
+            <button className={tab === 2 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(2)}
             >Volume</button>
 
-            <button onClick={() => onChange(3)}
-            >Tempreture</button>
+            <button className={tab === 3 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(3)}
+            >Temperature</button>
 
         </div>
     )
