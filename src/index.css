@@ -11,6 +11,6 @@ html {
 
 @layer components {
     .tabs-btns button {
-        @apply text-sm font-semibold px-4 py-1 rounded-md border-2 border-emerald-700 hover:text-emerald-50 hover:bg-emerald-700;
+        @apply text-sm font-semibold px-4 py-1 rounded-md border-2 border-emerald-700 hover:text-emerald-50 hover:bg-emerald-700 shadow-lg hover:shadow-sm transition-all duration-300;
     }
 }

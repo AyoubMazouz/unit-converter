@@ -13,7 +13,7 @@ function App() {
 
 
 	return (
-		<div className="flex flex-col justify-center items-center space-y-12 pt-16 xl:mx-24">
+		<div className="flex flex-col justify-center items-center space-y-4 pt-36 xl:mx-24">
 
 
 

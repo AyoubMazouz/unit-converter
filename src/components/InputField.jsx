@@ -39,7 +39,7 @@ const InputField = ({ input, setInput, setDropDown, tab }) => {
 
 
     return (
-        <div className='space-x-8'>
+        <div className='space-x-8 -mb-4'>
 
             <Input input={input} setInput={setInput} />
             <DropDown setDropDown={setDropDown} tab={tab} units={units} />
@@ -67,9 +67,12 @@ const DropDown = ({ setDropDown, tab, units }) => {
 
     return (
         <select onChange={e => setDropDown(e.target.value)}
-            className='h-10 bg-gray-50 focus:outline-none ring-2 ring-emerald-700 focus:ring-4 focus:ring-emerald-500 rounded-sm shadow-lg'>
+            className='h-10 bg-gray-50 focus:outline-none ring-2 ring-emerald-700 focus:ring-4 focus:ring-emerald-500 rounded-sm shadow-lg text-sm font-semibold text-emerald-700 cursor-pointer'>
 
-            <option value={false}>Select a unit...</option>
+            <option className='text-gray-400'
+            value={false}>
+                Select a unit...
+                </option>
 
             {units[tab][0].map((uFull, i) =>
                 <option key={i}

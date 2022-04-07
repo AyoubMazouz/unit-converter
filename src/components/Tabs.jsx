@@ -14,7 +14,7 @@ const Tabs = ({ tab, setTab, setInput, setDropDown }) => {
 
     return (
 
-        <div className='tabs-btns space-x-4'>
+        <div className='tabs-btns space-x-4 space-y-4 px-4'>
 
             <button className={tab === 0 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
             onClick={() => onChange(0)}

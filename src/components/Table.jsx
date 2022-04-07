@@ -91,7 +91,7 @@ const FullTable = ({ dropDown, outPut }) => {
         <table className='hidden lg:block'>
             <thead className='bg-emerald-500 border-emerald-700 border-b-[3px]'>
 
-                <tr className='text-left  font-bold tracking-wider capitalize'>
+                <tr className='text-left text-sm font-semibold tracking-wider capitalize'>
                     {outPut[0].map((v, i) =>
                         <th key={i}
                             className={`py-3 px-4 ${outPut[1][i] === dropDown ? 'text-emerald-800' : 'text-emerald-50'}`}
@@ -128,7 +128,7 @@ const SmallTable = ({ dropDown, outPut }) => {
 
         <div className='lg:hidden grid grid-cols-6 bg-gray-50 overflow-auto'>
 
-            <div className='py-4 px-6 col-span-2 bg-emerald-500 border-r-[3px] border-emerald-700 font-bold tracking-wider capitalize text-right'>
+            <div className='py-4 px-6 col-span-2 bg-emerald-500 border-r-[3px] border-emerald-700 font-semibold tracking-wider capitalize text-right'>
 
                 {outPut[0].map((v, i) =>
                     <h3 key={i}
