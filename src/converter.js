@@ -2,29 +2,29 @@ class Converter {
 
     baseM = {
         //  Metric Sys.            
-        km: 10 ** 3,          //   Kilometer
-        hm: 10 ** 2,          //   Decameter
-        dam: 10 ** 1,          //   Hectometer
-        m: 10 ** 0,           //  Meter          
-        dm: 10 ** -1,         //   Decimeter
-        cm: 10 ** -2,         //    Centimeter
-        mm: 10 ** -3,         //    Millimeter
+        km: 10**3,          //   Kilometer
+        hm: 10**2,          //   Decameter
+        dam: 10**1,          //   Hectometer
+        m: 10**0,           //  Meter          
+        dm: 10**-1,         //   Decimeter
+        cm: 10**-2,         //    Centimeter
+        mm: 10**-3,         //    Millimeter
 
-        kg: 10 ** 3,        //   Kilogram
-        hg: 10 ** 2,        //   Hectogram
-        dag: 10 ** 1,       //   Decagram
-        g: 10 ** 0,         //  Gram          
-        dg: 10 ** -1,       //   Decigram
-        cg: 10 ** -2,       //    Centigram
-        mg: 10 ** -3,       //    Milligram
+        kg: 10**3,        //   Kilogram
+        hg: 10**2,        //   Hectogram
+        dag: 10**1,       //   Decagram
+        g: 10**0,         //  Gram          
+        dg: 10**-1,       //   Decigram
+        cg: 10**-2,       //    Centigram
+        mg: 10**-3,       //    Milligram
 
-        kl: 10 ** 3,        //  Kiloliter
-        hl: 10 ** 2,        //  Hectoliter
-        dal: 10 ** 1,       //  Decaliter
-        l: 10 ** 0,         //  Liter          
-        dl: 10 ** -1,       //  Deciliter
-        cl: 10 ** -2,       //  Centiliter
-        ml: 10 ** -3,       //  Milliliter
+        kl: 10**3,        //  Kiloliter
+        hl: 10**2,        //  Hectoliter
+        dal: 10**1,       //  Decaliter
+        l: 10**0,         //  Liter          
+        dl: 10**-1,       //  Deciliter
+        cl: 10**-2,       //  Centiliter
+        ml: 10**-3,       //  Milliliter
         // US Sys
         // Length
         mile: 1609.344,     //  Mile
@@ -41,18 +41,50 @@ class Converter {
         flOz: 0.0254,       //  Fluid Ounce                                    
     };
 
-    mToUs = {               // From Meter / Gram / Liter To every US unit. 
+    mToUs = {               //  From Meter / Gram / Liter To every US unit. 
         mile: 0.0006213712, //  Mile
-        yd: 1.0936132983,   //  Yard                                    
-        ft: 3.280839895,    //  Feet                   // Length
-        in: 39.37007874,    //  Inch                              
-        pound: 0.0022046226,//  Pound                  // Weight
-        oz: 0.0352739619,   //  Ounce      
-        qt: 1.0566887074,   //  Quatre                 // US Sys
-        pt: 2.1133764189,   //  Pint                                    
-        cp: 4.2267548297,   //  Cup                    // Volume
-        flOz: 33.814038638, //  Fluid Ounce                                    
+        yd: 1.0936132983,   //  Yard
+        ft: 3.280839895,    //  Feet
+        in: 39.37007874,    //  Inch      
+        pound: 0.0022046226,//  Pound
+        oz: 0.0352739619,   //  Ounce 
+        qt: 1.0566887074,   //  Quatre
+        pt: 2.1133764189,   //  Pint
+        cp: 4.2267548297,   //  Cup
+        flOz: 33.814038638, //  Fluid Ounce
     };
+
+    baseD = {
+        ns: 864e11,                 //  Nanosecond
+        μs: 864e8,                  //  Microsecond
+        ms: 864e5,                  //  Millisecond
+        s: 86400,                   //  Second
+        min: 1440,                  //  Minute
+        h: 24,                      //  Hour
+        d: 1,                       //  Day
+        week: 0.1428571429,         //  Week
+        m: 0.0328767123,            //  Month
+        y: 0.0027378508,            //  Year
+        decade: 0.2737851e-3,       //  Decade
+        century: 0.2737851e-4,      //  Century
+        millennium: 0.2737851e-5,   //  Millennium
+    }
+
+    dToTime = {
+        ns: 1.157407407e-14,        //  Nanosecond
+        μs: 1.157407407e-11,        //  Microsecond
+        ms: 1.157407407E-8,         //  Millisecond
+        s: 0.115741e-4,             //  Second
+        min: 0.6944444e3,           //  Minute
+        h: 0.0416666667,            //  Hour
+        d: 1,                       //  Day
+        week: 7,                    //  Week
+        m: 30.416666667,            //  Month
+        y: 365.25,                  //  Year
+        decade: 3652.5,             //  Decade
+        century: 36525,             //  Century
+        millennium: 365250,         //  Millennium
+    }
 
     temperatureFormulas = {
         c: n => [n, (n * 1.8) + 32, (n + 273.15)],             // Celsius.
@@ -61,8 +93,7 @@ class Converter {
     }
 
     convertToMetric = (n, u) => this.baseM[u] * n;
-
-    metricSystem(n, u) {
+    metricSystem (n, u) {
 
         // Meter / Gram / Liter
         // Square Meter = return**2
@@ -77,7 +108,7 @@ class Converter {
         return arr.reverse();
     }
 
-    UsSystem(n, u, t) {
+    UsSystem (n, u, t) {
 
         // Mile / Yard / Foot / Inch
         // Square U = return**2 (length)
@@ -105,6 +136,20 @@ class Converter {
         return this.temperatureFormulas[u](n);
     }
 
+    convertToDays = (u, n) => this.baseD[u] * n;
+    time (n, u) {
+
+        // Nanosecond microsecond millisecond second minute hour day week month year decade century millennium
+
+        const bT = this.convertToDays(u, n);
+
+        const arr = [];
+
+        for (const u in this.dToTime) arr.push(this.dToTime[u] * bM)
+
+        return arr;
+    }
+
     getLengthMetric = () => ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
     getWeightMetric = () => ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
     getVolumeMetric = () => ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
@@ -113,6 +158,7 @@ class Converter {
     getVolumeUs = () => ['qt', 'pt', 'cp', 'flOz'];
 
     getTemperature = () => ['c', 'f', 'k'];
+    getTime = () => ['ns', 'μs', 'ms', 's', 'min', 'h', 'd', 'week', 'm', 'y', 'decade', 'century', 'millennium']
 
     getLengthMetricFull = () => ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
     getWeightMetricFull = () => ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
@@ -122,6 +168,7 @@ class Converter {
     getVolumeUsFull = () => ['quatre', 'pint', 'cup', 'fluid ounce'];
 
     getTemperatureFull = () => ['celsius', 'fahrenheit', 'kelvin'];
+    getTimeFull = () => ['Nanosecond', 'microsecond', 'millisecond', 'second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade', 'century', 'millennium']
 
 }
 
