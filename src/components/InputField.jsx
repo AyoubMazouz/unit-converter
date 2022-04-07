@@ -27,6 +27,14 @@ const InputField = ({ input, setInput, setDropDown, tab }) => {
             c.getTimeFull(),
             c.getTime(),
         ],
+        [
+            c.getAngleFull(),
+            c.getAngle(),
+        ],
+        [
+            c.getDataStorageFull(),
+            c.getDataStorage(),
+        ],
     ]
 
 

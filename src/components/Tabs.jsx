@@ -36,6 +36,14 @@ const Tabs = ({ tab, setTab, setInput, setDropDown }) => {
             onClick={() => onChange(4)}
             >Time</button>
 
+            <button className={tab === 5 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(5)}
+            >Angle</button>
+
+            <button className={tab === 6 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(6)}
+            >Data Storage</button>
+
         </div>
     )
 }

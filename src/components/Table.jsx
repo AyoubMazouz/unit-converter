@@ -14,31 +14,50 @@ const Table = ({ input, dropDown, tab }) => {
             () => {
                 setOutPut([
                     c.getLengthMetricFull().concat(c.getLengthUsFull()),
-                    c.metricSystem(i, u).concat(c.UsSystem(i, u, 'l'))
+                    c.getLengthMetric().concat(c.getLengthUs()),
+                    c.metricSystem(i, u).concat(c.UsSystem(i, u, 'l')),
                 ])
             },
             () => {
                 setOutPut([
                     c.getWeightMetricFull().concat(c.getWeightUsFull()),
+                    c.getWeightMetric().concat(c.getWeightUs()),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'w'))
                 ])
             },
             () => {
                 setOutPut([
                     c.getVolumeMetricFull().concat(c.getVolumeUsFull()),
+                    c.getVolumeMetric().concat(c.getVolumeUs()),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'v'))
                 ])
             },
             () => {
                 setOutPut([
                     c.getTemperatureFull(),
+                    c.getTemperature(),
                     c.temperature(i, u)
                 ])
             },
             () => {
                 setOutPut([
                     c.getTimeFull(),
+                    c.getTime(),
                     c.time(i, u)
+                ])
+            },
+            () => {
+                setOutPut([
+                    c.getAngleFull(),
+                    c.getAngle(),
+                    c.angle(i, u)
+                ])
+            },
+            () => {
+                setOutPut([
+                    c.getDataStorageFull(),
+                    c.getDataStorage(),
+                    c.dataStorage(i, u)
                 ])
             },
         ];
@@ -75,7 +94,7 @@ const FullTable = ({ dropDown, outPut }) => {
                 <tr className='text-left  font-bold tracking-wider capitalize'>
                     {outPut[0].map((v, i) =>
                         <th key={i}
-                            className={`py-3 px-4 ${v === dropDown ? 'text-emerald-800' : 'text-emerald-50'}`}
+                            className={`py-3 px-4 ${outPut[1][i] === dropDown ? 'text-emerald-800' : 'text-emerald-50'}`}
                         >{v}</th>
                     )}
                 </tr>
@@ -83,13 +102,13 @@ const FullTable = ({ dropDown, outPut }) => {
             </thead>
             <tbody className='bg-gray-100 border-b-[2px] text-sm font-semibold'>
                 <tr>
-                    {outPut[1].map((v, i) =>
+                    {outPut[2].map((v, i) =>
                         isNaN(v)
                             ? <th key={i}
-                                className={`p-3 ${outPut[0][i] === dropDown ? 'text-emerald-600' : 'text-gray-400'}`}
+                                className={`p-3 ${outPut[1][i] === dropDown ? 'text-emerald-600' : 'text-gray-400'}`}
                             >0</th>
                             : <th key={i}
-                                className={`p-3 ${outPut[0][i] === dropDown ? 'text-emerald-600' : 'text-gray-700'}`}
+                                className={`p-3 ${outPut[1][i] === dropDown ? 'text-emerald-600' : 'text-gray-700'}`}
                             >{v.toFixed(6).replace(/(\.0+|0+)$/, '')}</th>
                     )
                     }
@@ -113,20 +132,20 @@ const SmallTable = ({ dropDown, outPut }) => {
 
                 {outPut[0].map((v, i) =>
                     <h3 key={i}
-                        className={` ${outPut[0][i] === dropDown ? 'text-emerald-800' : 'text-emerald-50'}`}>{v}:</h3>
+                        className={` ${outPut[1][i] === dropDown ? 'text-emerald-800' : 'text-emerald-50'}`}>{v}:</h3>
                 )}
 
             </div>
 
             <div className='cols-span-auto py-4 px-6 text-gray-700 font-semibold'>
 
-                {outPut[1].map((v, i) =>
+                {outPut[2].map((v, i) =>
                     isNaN(v)
                         ? <h3 key={i}
-                            className={outPut[0][i] === dropDown ? 'text-emerald-600' : 'text-gray-400'}
+                            className={outPut[1][i] === dropDown ? 'text-emerald-600' : 'text-gray-400'}
                         >0</h3>
                         : <h3 key={i}
-                            className={outPut[0][i] === dropDown ? 'text-emerald-600' : 'text-gray-700'}
+                            className={outPut[1][i] === dropDown ? 'text-emerald-600' : 'text-gray-700'}
                         >{v.toFixed(6).replace(/(\.0+|0+)$/, '')}</h3>
                 )
                 }

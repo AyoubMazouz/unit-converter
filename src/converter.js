@@ -1,6 +1,6 @@
 class Converter {
 
-    baseM = {
+    baseMeter = {
         //  Metric Sys.  
         // Length          
         km: 10**3,          //   Kilometer
@@ -29,33 +29,33 @@ class Converter {
         // US Sys
         // Length
         mile: 1609.344,     //  Mile
-        yd: 0.9144,         //  Yard                                    
-        ft: 0.3048,         //  Feet                  
-        in: 0.0254,         //  Inch             
+        yd: .9144,         //  Yard                                    
+        ft: .3048,         //  Feet                  
+        in: .0254,         //  Inch             
         // Weight
         pd: 453.59237,      //  Pound                  
         oz: 28.349523125,   //  Ounce                       
         // Volume
-        qt: 0.946352946,    //  Quatre                 
-        pt: 0.473176,       //  Pint                                    
-        cp: 0.2365882365,   //  Cup                    
-        flOz: 0.0254,       //  Fluid Ounce                                    
+        qt: .946352946,    //  Quatre                 
+        pt: .473176,       //  Pint                                    
+        cp: .2365882365,   //  Cup                    
+        flOz: .0254,       //  Fluid Ounce                                    
     };
 
-    mToUs = {               //  From Meter / Gram / Liter To every US unit. 
-        mile: 0.0006213712, //  Mile
+    meterToUs = {               //  From Meter / Gram / Liter To every US unit. 
+        mile: .0006213712, //  Mile
         yd: 1.0936132983,   //  Yard
         ft: 3.280839895,    //  Feet
         in: 39.37007874,    //  Inch      
-        pound: 0.0022046226,//  Pound
-        oz: 0.0352739619,   //  Ounce 
+        pound: .0022046226,//  Pound
+        oz: .0352739619,   //  Ounce 
         qt: 1.0566887074,   //  Quatre
         pt: 2.1133764189,   //  Pint
         cp: 4.2267548297,   //  Cup
         flOz: 33.814038638, //  Fluid Ounce
     };
 
-    baseD = {
+    baseDay = {
         ns: 864e11,                 //  Nanosecond
         μs: 864e8,                  //  Microsecond
         ms: 864e5,                  //  Millisecond
@@ -64,20 +64,20 @@ class Converter {
         h: 24,                      //  Hour
         d: 1,                       //  Day
         week: 0.1428571429,         //  Week
-        m: 0.0328767123,            //  Month
-        y: 0.0027378508,            //  Year
-        decade: 0.2737851e-3,       //  Decade
-        century: 0.2737851e-4,      //  Century
-        millennium: 0.2737851e-5,   //  Millennium
+        m: .0328767123,            //  Month
+        y: .0027378508,            //  Year
+        decade: 2737851e-4,       //  Decade
+        century: 2737851e-5,      //  Century
+        millennium: 2737851e-6,   //  Millennium
     }
 
-    dToTime = {
+    dayToTime = {
         ns: 1.157407407e-14,        //  Nanosecond
         μs: 1.157407407e-11,        //  Microsecond
         ms: 1.157407407E-8,         //  Millisecond
-        s: 0.115741e-4,             //  Second
-        min: 0.6944444e3,           //  Minute
-        h: 0.0416666667,            //  Hour
+        s: 115741e-5,             //  Second
+        min: 6944444e4,           //  Minute
+        h: .0416666667,            //  Hour
         d: 1,                       //  Day
         week: 7,                    //  Week
         m: 30.416666667,            //  Month
@@ -87,13 +87,39 @@ class Converter {
         millennium: 365250,         //  Millennium
     }
 
+    baseByte = {
+        bit: .125,
+        b : 1,
+        kb: 1024,
+        mb: 1048576,
+        gb: 1073741824,
+        tb: 1099511627776,
+        pb: 1125899906842580,
+    }
+
+    byteToDataStorage = {
+        bit: 8,
+        b : 1,
+        kb: 9.765625e-4,
+        mb: 9.536743164e-7,
+        gb: 9.313225746e-10,
+        tb: 9.094947017e-13,
+        pb: 8.881784197e-16,
+    }
+
     temperatureFormulas = {
         c: n => [n, (n * 1.8) + 32, (n + 273.15)],             // Celsius.
         f: n => [(n - 32) * 1.8, n, (n + 459.67) * (5 / 9)],   // Fahrenheit.    
         k: n => [(n - 273.15), (n - 273.15) * (9 / 5) + 32, n],// Kelvin.
     }
 
-    convertToMetric = (n, u) => this.baseM[u] * n;
+    angleFormulas = {
+        deg: n => [n, n * 0.0174532925, n * 1.1111111111],
+        rad: n => [n * 57.295779513, n, n * 63.661977237],
+        gon: n => [n * 0.9, n  * 0.01571, n],
+    }
+
+    convertToMetric = (n, u) => this.baseMeter[u] * n;
     metricSystem (n, u) {
 
         // Meter / Gram / Liter
@@ -104,7 +130,7 @@ class Converter {
 
         const arr = [];
 
-        for (let i = 3; i > -4; i--) arr.push(bM * 10 ** i);
+        for (let i = 3; i > -4; i--) arr.push(bM*10**i);
 
         return arr.reverse();
     }
@@ -119,7 +145,7 @@ class Converter {
 
         const arr = [];
 
-        for (const u in this.mToUs) arr.push(this.mToUs[u] * bM)
+        for (const u in this.meterToUs) arr.push(this.meterToUs[u] * bM)
 
         return {
             'l': arr.slice(0, 4),
@@ -137,16 +163,41 @@ class Converter {
         return this.temperatureFormulas[u](n);
     }
 
-    convertToDays = (u, n) => this.baseD[u] * n;
+    convertToDay = (n, u) => this.baseDay[u] * n;
     time (n, u) {
 
         // Nanosecond microsecond millisecond second minute hour day week month year decade century millennium
 
-        const bT = this.convertToDays(u, n);
+        const bT = this.convertToDay(n, u);
 
         const arr = [];
 
-        for (const u in this.dToTime) arr.push(this.dToTime[u] * bT)
+        for (const u in this.dayToTime) arr.push(this.dayToTime[u] * bT)
+
+        return arr;
+    }
+
+    angle = (n, u) => {
+
+        if (!u) return [NaN, NaN, NaN]
+
+        // Degree Radian Grad
+
+        return this.angleFormulas[u](n); 
+    }
+
+    convertToByte = (n, u) => this.baseByte[u] * n;
+    dataStorage = (n, u) => {
+
+        // Bit Byte Kilobyte Megabyte Gigabyte Terabyte Petabyte
+
+        const bB = this.convertToByte(n, u);
+
+        const arr = [];
+
+        for (const u in this.byteToDataStorage) arr.push(this.byteToDataStorage[u] * bB)
+
+        console.log(u)
 
         return arr;
     }
@@ -160,6 +211,8 @@ class Converter {
 
     getTemperature = () => ['c', 'f', 'k'];
     getTime = () => ['ns', 'μs', 'ms', 's', 'min', 'h', 'd', 'week', 'm', 'y', 'decade', 'century', 'millennium']
+    getAngle = () => ['deg', 'rad', 'gon'];
+    getDataStorage = () => ['bit', 'b', 'kb', 'mb', 'gb', 'tb', 'pb'];
 
     getLengthMetricFull = () => ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
     getWeightMetricFull = () => ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
@@ -170,7 +223,8 @@ class Converter {
 
     getTemperatureFull = () => ['celsius', 'fahrenheit', 'kelvin'];
     getTimeFull = () => ['Nanosecond', 'microsecond', 'millisecond', 'second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade', 'century', 'millennium']
-
+    getAngleFull = () => ['degree', 'radian', 'grad'];
+    getDataStorageFull = () => ['bit', 'byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte']
 }
 
 export default Converter;
