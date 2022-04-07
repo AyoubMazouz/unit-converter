@@ -32,6 +32,10 @@ const Tabs = ({ tab, setTab, setInput, setDropDown }) => {
             onClick={() => onChange(3)}
             >Temperature</button>
 
+            <button className={tab === 4 ? 'bg-emerald-700 text-emerald-50' : 'bg-gray-50 text-emerald-800'}
+            onClick={() => onChange(4)}
+            >Time</button>
+
         </div>
     )
 }

@@ -13,26 +13,32 @@ const Table = ({ input, dropDown, tab }) => {
         const funcs = [
             () => {
                 setOutPut([
-                    c.getLengthMetric().concat(c.getLengthUs()),
+                    c.getLengthMetricFull().concat(c.getLengthUsFull()),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'l'))
                 ])
             },
             () => {
                 setOutPut([
-                    c.getWeightMetric().concat(c.getWeightUs()),
+                    c.getWeightMetricFull().concat(c.getWeightUsFull()),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'w'))
                 ])
             },
             () => {
                 setOutPut([
-                    c.getVolumeMetric().concat(c.getVolumeUs()),
+                    c.getVolumeMetricFull().concat(c.getVolumeUsFull()),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'v'))
                 ])
             },
             () => {
                 setOutPut([
-                    c.getTemperature(),
+                    c.getTemperatureFull(),
                     c.temperature(i, u)
+                ])
+            },
+            () => {
+                setOutPut([
+                    c.getTimeFull(),
+                    c.time(i, u)
                 ])
             },
         ];
@@ -63,7 +69,7 @@ const FullTable = ({ dropDown, outPut }) => {
 
     return (
 
-        <table className='hidden lg:block '>
+        <table className='hidden lg:block'>
             <thead className='bg-emerald-500 border-emerald-700 border-b-[3px]'>
 
                 <tr className='text-left  font-bold tracking-wider capitalize'>
@@ -103,7 +109,7 @@ const SmallTable = ({ dropDown, outPut }) => {
 
         <div className='lg:hidden grid grid-cols-6 bg-gray-50 overflow-auto'>
 
-            <div className='py-4 px-6 col-span-1 bg-emerald-500 border-r-[3px] border-emerald-700 font-bold tracking-wider capitalize text-right'>
+            <div className='py-4 px-6 col-span-2 bg-emerald-500 border-r-[3px] border-emerald-700 font-bold tracking-wider capitalize text-right'>
 
                 {outPut[0].map((v, i) =>
                     <h3 key={i}

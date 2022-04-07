@@ -1,7 +1,8 @@
 class Converter {
 
     baseM = {
-        //  Metric Sys.            
+        //  Metric Sys.  
+        // Length          
         km: 10**3,          //   Kilometer
         hm: 10**2,          //   Decameter
         dam: 10**1,          //   Hectometer
@@ -9,7 +10,7 @@ class Converter {
         dm: 10**-1,         //   Decimeter
         cm: 10**-2,         //    Centimeter
         mm: 10**-3,         //    Millimeter
-
+        // Weight
         kg: 10**3,        //   Kilogram
         hg: 10**2,        //   Hectogram
         dag: 10**1,       //   Decagram
@@ -17,7 +18,7 @@ class Converter {
         dg: 10**-1,       //   Decigram
         cg: 10**-2,       //    Centigram
         mg: 10**-3,       //    Milligram
-
+        // Volume
         kl: 10**3,        //  Kiloliter
         hl: 10**2,        //  Hectoliter
         dal: 10**1,       //  Decaliter
@@ -145,7 +146,7 @@ class Converter {
 
         const arr = [];
 
-        for (const u in this.dToTime) arr.push(this.dToTime[u] * bM)
+        for (const u in this.dToTime) arr.push(this.dToTime[u] * bT)
 
         return arr;
     }

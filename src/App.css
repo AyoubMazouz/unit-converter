@@ -489,8 +489,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(236 253 245 / var(--tw-text-opacity));
 }
 
-.col-span-1{
-  grid-column: span 1 / span 1;
+.col-span-2{
+  grid-column: span 2 / span 2;
 }
 
 .mx-4{
@@ -685,11 +685,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-400{
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
-.text-emerald-700{
-  --tw-text-opacity: 1;
-  color: rgb(4 120 87 / var(--tw-text-opacity));
 }
 
 .shadow-lg{

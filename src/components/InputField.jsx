@@ -23,6 +23,10 @@ const InputField = ({ input, setInput, setDropDown, tab }) => {
             c.getTemperatureFull(),
             c.getTemperature(),
         ],
+        [
+            c.getTimeFull(),
+            c.getTime(),
+        ],
     ]
 
 
