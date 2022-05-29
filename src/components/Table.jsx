@@ -110,7 +110,7 @@ const FullTable = ({ dropDown, outPut }) => {
                             >0</th>
                             : <th key={i}
                                 className={`p-3 ${outPut[1][i] === dropDown ? 'text-emerald-600' : 'text-gray-700'}`}
-                            >{v.toFixed(6).replace(/(\.0+|0+)$/, '')}</th>
+                            >{v.toFixed(8).replace(/(\.0+|0+)$/, '')}</th>
                     )
                     }
                 </tr>

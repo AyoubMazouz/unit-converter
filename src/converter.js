@@ -118,7 +118,7 @@ export default class Converter {
     }
 
     baseKj = {
-        "c (15°C)": 4.184,
+        "c": 4.1868,
         hph: 2684.519717,
         jh: 0.001,
         kjh: 1,
@@ -126,14 +126,14 @@ export default class Converter {
         kwh: 3600,
         eV: 1.60217733e-22,
     }
-    baseKj = {
-        "c (15°C)": 0.239,
-        hph: 37250613599862e-4,
+    kjToEnergy = {
+        "c": 0.2388458966,
+        hph: 0.3776727e-3,
         jh: 1000,
         kjh: 1,
         wh: 0.2777777778,
-        kwh: 278e-4,
-        eV: 6.241506363E+21,
+        kwh: 0.2777778e-3,
+        eV: 6.241506363e+21,
     }
 
     convertToMetric = (n, u) => this.baseMeter[u] * n;
@@ -193,10 +193,10 @@ export default class Converter {
 
     convertToKj = (n, u) => this.baseKj[u] * n;
     energy = (n, u) => {
-        // Bit Byte Kilobyte Megabyte Gigabyte Terabyte Petabyte
+        // 
         const bkj = this.convertToKj(n, u);
         const arr = [];
-        for (const u in this.byteToDataStorage) arr.push(this.byteToDataStorage[u] * bkj)
+        for (const u in this.kjToEnergy) arr.push(this.kjToEnergy[u] * bkj)
         return arr;
     }
 
@@ -211,7 +211,7 @@ export default class Converter {
     getTime = () => ['ns', 'μs', 'ms', 's', 'min', 'h', 'd', 'week', 'm', 'y', 'decade', 'century', 'millennium']
     getAngle = () => ['deg', 'rad', 'gon'];
     getDataStorage = () => ['bit', 'b', 'kb', 'mb', 'gb', 'tb', 'pb'];
-    getEnergy = () => ['c (15°C)', 'hph', 'jh', 'kjh', 'wh', 'kwh', 'eV'];
+    getEnergy = () => ['c', 'hph', 'jh', 'kjh', 'wh', 'kwh', 'eV'];
     // Get Full Label
     getLengthMetricFull = () => ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
     getWeightMetricFull = () => ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
@@ -223,7 +223,7 @@ export default class Converter {
     getTimeFull = () => ['Nanosecond', 'microsecond', 'millisecond', 'second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade', 'century', 'millennium']
     getAngleFull = () => ['degree', 'radian', 'grad'];
     getDataStorageFull = () => ['bit', 'byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte']
-    getEnergyFull = () => ['calorie (15°C)', 'horsepower~hour', 'joule~hour', 'kilojoule~hour', 'watt~hour', 'kilowatt~hour', 'electronVolt'];
+    getEnergyFull = () => ['calorie', 'horsepower~hour', 'joule~hour', 'kilojoule~hour', 'watt~hour', 'kilowatt~hour', 'electronVolt'];
 }
 
 
