@@ -29,26 +29,26 @@ export default class Converter {
         // US Sys       
         // Length
         mile: 1609.344,         //  Mile
-        yd: .9144,              //  Yard                                    
-        ft: .3048,              //  Feet                  
-        in: .0254,              //  Inch             
+        yd: 0.9144,              //  Yard                                    
+        ft: 0.3048,              //  Feet                  
+        in: 0.0254,              //  Inch             
         // Weight       
         pd: 453.59237,          //  Pound                  
         oz: 28.349523125,       //  Ounce                       
         // Volume
-        qt: .946352946,         //  Quatre                 
-        pt: .473176,            //  Pint                                    
-        cp: .2365882365,        //  Cup                    
-        flOz: .0254,            //  Fluid Ounce                                    
+        qt: 0.946352946,         //  Quatre                 
+        pt: 0.473176,            //  Pint                                    
+        cp: 0.2365882365,        //  Cup                    
+        flOz: 0.0254,            //  Fluid Ounce                                    
     };      
 
     meterToUs = {               //  From Meter / Gram / Liter To every US unit. 
-        mile: .0006213712,      //  Mile
+        mile: 0.0006213712,      //  Mile
         yd: 1.0936132983,       //  Yard
         ft: 3.280839895,        //  Feet
         in: 39.37007874,        //  Inch      
-        pound: .0022046226,     //  Pound
-        oz: .0352739619,        //  Ounce 
+        pound: 0.0022046226,     //  Pound
+        oz: 0.0352739619,        //  Ounce 
         qt: 1.0566887074,       //  Quatre
         pt: 2.1133764189,       //  Pint
         cp: 4.2267548297,       //  Cup
@@ -56,27 +56,27 @@ export default class Converter {
     };
 
     baseDay = {
-        ns: 864e11,              //  Nanosecond
-        μs: 864e8,               //  Microsecond
-        ms: 864e5,               //  Millisecond
+        ns: 864e+11,              //  Nanosecond
+        μs: 864e+8,               //  Microsecond
+        ms: 864e+5,               //  Millisecond
         s: 86400,                //  Second
         min: 1440,               //  Minute
         h: 24,                   //  Hour
         d: 1,                    //  Day
         week: 0.1428571429,      //  Week
-        m: .0328767123,          //  Month
-        y: .0027378508,          //  Year
-        decade: 2737851e-4,      //  Decade
-        century: 2737851e-5,     //  Century
-        millennium: 2737851e-6,  //  Millennium
+        m: 0.0328767123,          //  Month
+        y: 0.0027378508,          //  Year
+        decade: 0.2737851e-3,      //  Decade
+        century: 0.2737851e-4,     //  Century
+        millennium: 0.2737851e-5,  //  Millennium
     }
     dayToTime = {
         ns: 1.157407407e-14,      //  Nanosecond
         μs: 1.157407407e-11,      //  Microsecond
         ms: 1.157407407e-8,       //  Millisecond
-        s: 115741e-5,             //  Second
-        min: 6944444e4,           //  Minute
-        h: .0416666667,           //  Hour
+        s: 0.115741e-4,             //  Second
+        min: 0.6944444e-3,           //  Minute
+        h: 0.0416666667,           //  Hour
         d: 1,                     //  Day
         week: 7,                  //  Week
         m: 30.416666667,          //  Month
