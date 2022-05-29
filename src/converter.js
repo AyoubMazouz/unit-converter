@@ -2,107 +2,107 @@ export default class Converter {
 
     baseMeter = {
         //  Metric Sys.  
-        // Length          
-        km: 10**3,              //   Kilometer
-        hm: 10**2,              //   Decameter
-        dam: 10**1,             //   Hectometer
-        m: 10**0,               //  Meter          
-        dm: 10**-1,             //   Decimeter
-        cm: 10**-2,             //    Centimeter
-        mm: 10**-3,             //    Millimeter
-        // Weight
-        kg: 10**3,              //   Kilogram
-        hg: 10**2,              //   Hectogram
-        dag: 10**1,             //   Decagram
-        g: 10**0,               //  Gram          
-        dg: 10**-1,             //   Decigram
-        cg: 10**-2,             //    Centigram
-        mg: 10**-3,             //    Milligram
-        // Volume   
-        kl: 10**3,              //  Kiloliter
-        hl: 10**2,              //  Hectoliter
-        dal: 10**1,             //  Decaliter
-        l: 10**0,               //  Liter          
-        dl: 10**-1,             //  Deciliter
-        cl: 10**-2,             //  Centiliter
-        ml: 10**-3,             //  Milliliter
-        // US Sys       
-        // Length
-        mile: 1609.344,         //  Mile
-        yd: 0.9144,              //  Yard                                    
-        ft: 0.3048,              //  Feet                  
-        in: 0.0254,              //  Inch             
-        // Weight       
-        pd: 453.59237,          //  Pound                  
-        oz: 28.349523125,       //  Ounce                       
-        // Volume
-        qt: 0.946352946,         //  Quatre                 
-        pt: 0.473176,            //  Pint                                    
-        cp: 0.2365882365,        //  Cup                    
-        flOz: 0.0254,            //  Fluid Ounce                                    
+        // Length.      
+        km: 10**3,                  //  Kilometer.
+        hm: 10**2,                  //  Decameter.
+        dam: 10**1,                 //  Hectometer.
+        m: 10**0,                   //  Meter.     
+        dm: 10**-1,                 //  Decimeter.
+        cm: 10**-2,                 //  Centimeter.
+        mm: 10**-3,                 //  Millimeter.
+        // Weight.
+        kg: 10**3,                  //  Kilogram.
+        hg: 10**2,                  //  Hectogram.
+        dag: 10**1,                 //  Decagram.
+        g: 10**0,                   //  Gram.    
+        dg: 10**-1,                 //  Decigram.
+        cg: 10**-2,                 //  Centigram.
+        mg: 10**-3,                 //  Milligram.
+        // Volume.    
+        kl: 10**3,                  //  Kiloliter.
+        hl: 10**2,                  //  Hectoliter.
+        dal: 10**1,                 //  Decaliter.
+        l: 10**0,                   //  Liter.     
+        dl: 10**-1,                 //  Deciliter.
+        cl: 10**-2,                 //  Centiliter.
+        ml: 10**-3,                 //  Milliliter.
+        // US Sys.       
+        // Length.
+        mile: 1609.344,             //  Mile.
+        yd: 0.9144,                 //  Yard.                           
+        ft: 0.3048,                 //  Feet.         
+        in: 0.0254,                 //  Inch.    
+        // Weight.
+        pd: 453.59237,              //  Pound.          
+        oz: 28.349523125,           //  Ounce.               
+        // Volume. 
+        qt: 0.946352946,            //  Quatre.
+        pt: 0.473176,               //  Pint.
+        cp: 0.2365882365,           //  Cup.
+        flOz: 0.0254,               //  Fluid Ounce.
     };      
 
-    meterToUs = {               //  From Meter / Gram / Liter To every US unit. 
-        mile: 0.0006213712,      //  Mile
-        yd: 1.0936132983,       //  Yard
-        ft: 3.280839895,        //  Feet
-        in: 39.37007874,        //  Inch      
-        pound: 0.0022046226,     //  Pound
-        oz: 0.0352739619,        //  Ounce 
-        qt: 1.0566887074,       //  Quatre
-        pt: 2.1133764189,       //  Pint
-        cp: 4.2267548297,       //  Cup
-        flOz: 33.814038638,     //  Fluid Ounce
+    meterToUs = {                   //  From Meter / Gram / Liter To every US unit. 
+        mile: 0.0006213712,         //  Mile.
+        yd: 1.0936132983,           //  Yard.
+        ft: 3.280839895,            //  Feet.
+        in: 39.37007874,            //  Inch.
+        pound: 0.0022046226,        //  Pound.
+        oz: 0.0352739619,           //  Ounce .
+        qt: 1.0566887074,           //  Quatre.
+        pt: 2.1133764189,           //  Pint.
+        cp: 4.2267548297,           //  Cup.
+        flOz: 33.814038638,         //  Fluid Ounce.
     };
 
     baseDay = {
-        ns: 864e+11,              //  Nanosecond
-        μs: 864e+8,               //  Microsecond
-        ms: 864e+5,               //  Millisecond
-        s: 86400,                //  Second
-        min: 1440,               //  Minute
-        h: 24,                   //  Hour
-        d: 1,                    //  Day
-        week: 0.1428571429,      //  Week
-        m: 0.0328767123,          //  Month
-        y: 0.0027378508,          //  Year
-        decade: 0.2737851e-3,      //  Decade
-        century: 0.2737851e-4,     //  Century
-        millennium: 0.2737851e-5,  //  Millennium
+        ns: 864e+11,                //  Nanosecond.
+        μs: 864e+8,                 //  Microsecond.
+        ms: 864e+5,                 //  Millisecond.
+        s: 86400,                   //  Second.
+        min: 1440,                  //  Minute.
+        h: 24,                      //  Hour.
+        d: 1,                       //  Day.
+        week: 0.1428571429,         //  Week.
+        m: 0.0328767123,            //  Month.
+        y: 0.0027378508,            //  Year.
+        decade: 0.2737851e-3,       //  Decade.
+        century: 0.2737851e-4,      //  Century.
+        millennium: 0.2737851e-5,   //  Millennium.
     }
     dayToTime = {
-        ns: 1.157407407e-14,      //  Nanosecond
-        μs: 1.157407407e-11,      //  Microsecond
-        ms: 1.157407407e-8,       //  Millisecond
-        s: 0.115741e-4,             //  Second
-        min: 0.6944444e-3,           //  Minute
-        h: 0.0416666667,           //  Hour
-        d: 1,                     //  Day
-        week: 7,                  //  Week
-        m: 30.416666667,          //  Month
-        y: 365.25,                //  Year
-        decade: 3652.5,           //  Decade
-        century: 36525,           //  Century
-        millennium: 365250,       //  Millennium
+        ns: 1.157407407e-14,        //  Nanosecond.
+        μs: 1.157407407e-11,        //  Microsecond.
+        ms: 1.157407407e-8,         //  Millisecond.
+        s: 0.115741e-4,             //  Second.
+        min: 0.6944444e-3,          //  Minute.
+        h: 0.0416666667,            //  Hour.
+        d: 1,                       //  Day.
+        week: 7,                    //  Week.
+        m: 30.416666667,            //  Month.
+        y: 365.25,                  //  Year.
+        decade: 3652.5,             //  Decade.
+        century: 36525,             //  Century.
+        millennium: 365250,         //  Millennium.
     }
 
     baseByte = {
-        bit: .125,
-        b : 1,
-        kb: 1024,
-        mb: 1048576,
-        gb: 1073741824,
-        tb: 1099511627776,
-        pb: 1125899906842580,
+        bit: .125,                  // Bit.   
+        b : 1,                      // Byte.
+        kb: 1024,                   // Kilobyte.
+        mb: 1048576,                // Megabyte.
+        gb: 1073741824,             // Gigabyte.
+        tb: 1099511627776,          // Terabyte.
+        pb: 1125899906842580,       // Petabyte.
     }
     byteToDataStorage = {
-        bit: 8,
-        b : 1,
-        kb: 9.765625e-4,
-        mb: 9.536743164e-7,
-        gb: 9.313225746e-10,
-        tb: 9.094947017e-13,
-        pb: 8.881784197e-16,
+        bit: 8,                     // Bit.   
+        b : 1,                      // Byte.
+        kb: 9.765625e-4,            // Kilobyte.
+        mb: 9.536743164e-7,         // Megabyte.
+        gb: 9.313225746e-10,        // Gigabyte.
+        tb: 9.094947017e-13,        // Terabyte.
+        pb: 8.881784197e-16,        // Petabyte.
     }
 
     temperatureFormulas = {
@@ -112,28 +112,28 @@ export default class Converter {
     }
 
     angleFormulas = {
-        deg: n => [n, n * 0.0174532925, n * 1.1111111111],
-        rad: n => [n * 57.295779513, n, n * 63.661977237],
-        gon: n => [n * 0.9, n  * 0.01571, n],
+        deg: n => [n, n * 0.0174532925, n * 1.1111111111],      // Degree.
+        rad: n => [n * 57.295779513, n, n * 63.661977237],      // Radian.
+        gon: n => [n * 0.9, n  * 0.01571, n],                   // Grad.
     }
 
     baseKj = {
-        "c": 4.1868,
-        hph: 2684.519717,
-        jh: 0.001,
-        kjh: 1,
-        wh: 3.6,
-        kwh: 3600,
-        eV: 1.60217733e-22,
+        "c": 4.1868,                // Calorie.   
+        hp: 2684.519717,            // Horsepower.
+        j: 0.001,                   // joule.
+        kj: 1,                      // kilojoule.
+        wh: 3.6,                    // Watt per hour.
+        kwh: 3600,                  // Kilowatt per hour.
+        eV: 1.60217733e-22,         // electronVolt.
     }
     kjToEnergy = {
-        "c": 0.2388458966,
-        hph: 0.3776727e-3,
-        jh: 1000,
-        kjh: 1,
-        wh: 0.2777777778,
-        kwh: 0.2777778e-3,
-        eV: 6.241506363e+21,
+        "c": 0.2388458966,          // Calorie.   
+        hp: 0.3776727e-3,           // Horsepower.
+        j: 1000,                    // joule.
+        kj: 1,                      // kilojoule.
+        wh: 0.2777777778,           // Watt per hour.
+        kwh: 0.2777778e-3,          // Kilowatt per hour.
+        eV: 6.241506363e+21,        // electronVolt.
     }
 
     convertToMetric = (n, u) => this.baseMeter[u] * n;
@@ -193,7 +193,7 @@ export default class Converter {
 
     convertToKj = (n, u) => this.baseKj[u] * n;
     energy = (n, u) => {
-        // 
+        // Calorie Horsepower joule kilojoule (Watt per hour) (Kilowatt per hour) electronVolt
         const bkj = this.convertToKj(n, u);
         const arr = [];
         for (const u in this.kjToEnergy) arr.push(this.kjToEnergy[u] * bkj)
@@ -211,7 +211,7 @@ export default class Converter {
     getTime = () => ['ns', 'μs', 'ms', 's', 'min', 'h', 'd', 'week', 'm', 'y', 'decade', 'century', 'millennium']
     getAngle = () => ['deg', 'rad', 'gon'];
     getDataStorage = () => ['bit', 'b', 'kb', 'mb', 'gb', 'tb', 'pb'];
-    getEnergy = () => ['c', 'hph', 'jh', 'kjh', 'wh', 'kwh', 'eV'];
+    getEnergy = () => ['c', 'hp', 'j', 'kj', 'wh', 'kwh', 'eV'];
     // Get Full Label
     getLengthMetricFull = () => ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
     getWeightMetricFull = () => ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
@@ -223,7 +223,7 @@ export default class Converter {
     getTimeFull = () => ['Nanosecond', 'microsecond', 'millisecond', 'second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade', 'century', 'millennium']
     getAngleFull = () => ['degree', 'radian', 'grad'];
     getDataStorageFull = () => ['bit', 'byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte']
-    getEnergyFull = () => ['calorie', 'horsepower~hour', 'joule~hour', 'kilojoule~hour', 'watt~hour', 'kilowatt~hour', 'electronVolt'];
+    getEnergyFull = () => ['calorie', 'horsepower', 'joule', 'kilojoule', 'watt~hour', 'kilowatt~hour', 'electronVolt'];
 }
 
 
