@@ -13,64 +13,63 @@ export default function Table ({ input, dropDown, tab }) {
         const funcs = [
             () => {
                 setOutPut([
-                    c.getLengthMetricFull().concat(c.getLengthUsFull()),
-                    c.getLengthMetric().concat(c.getLengthUs()),
+                    c.lengthMetricFull.concat(c.lengthUsFull),
+                    c.lengthMetricShort.concat(c.lengthUsShort),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'l')),
                 ])
             },
             () => {
                 setOutPut([
-                    c.getWeightMetricFull().concat(c.getWeightUsFull()),
-                    c.getWeightMetric().concat(c.getWeightUs()),
+                    c.weightMetricFull.concat(c.weightUsFull),
+                    c.weightMetricShort.concat(c.weightUsShort),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'w'))
                 ])
             },
             () => {
                 setOutPut([
-                    c.getVolumeMetricFull().concat(c.getVolumeUsFull()),
-                    c.getVolumeMetric().concat(c.getVolumeUs()),
+                    c.volumeMetricFull.concat(c.volumeUsFull),
+                    c.volumeMetricShort.concat(c.volumeUsShort),
                     c.metricSystem(i, u).concat(c.UsSystem(i, u, 'v'))
                 ])
             },
             () => {
                 setOutPut([
-                    c.getTemperatureFull(),
-                    c.getTemperature(),
+                    c.temperatureFull,
+                    c.temperatureShort,
                     c.temperature(i, u)
                 ])
             },
             () => {
                 setOutPut([
-                    c.getTimeFull(),
-                    c.getTime(),
+                    c.timeFull,
+                    c.timeShort,
                     c.time(i, u)
                 ])
             },
             () => {
                 setOutPut([
-                    c.getAngleFull(),
-                    c.getAngle(),
+                    c.angleFull,
+                    c.angleShort,
                     c.angle(i, u)
                 ])
             },
             () => {
                 setOutPut([
-                    c.getDataStorageFull(),
-                    c.getDataStorage(),
+                    c.dataStorageFull,
+                    c.dataStorageShort,
                     c.dataStorage(i, u)
                 ])
             },
             () => {
                 setOutPut([
-                    c.getEnergyFull(),
-                    c.getEnergy(),
+                    c.energyFull,
+                    c.energyShort,
                     c.energy(i, u)
                 ])
             },
         ];
 
         funcs[tab]();
-        console.log(outPut)
     }, [input, dropDown, tab]);
 
     return (

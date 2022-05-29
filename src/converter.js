@@ -1,5 +1,31 @@
 export default class Converter {
 
+    // Get Short Label.
+    lengthMetricShort   = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+    weightMetricShort   = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
+    volumeMetricShort   = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
+    lengthUsShort       = ['mile', 'yd', 'ft', 'in'];
+    weightUsShort       = ['pd', 'oz'];
+    volumeUsShort       = ['qt', 'pt', 'cp', 'flOz'];
+    temperatureShort    = ['c', 'f', 'k'];
+    timeShort           = ['millennium', 'century', 'decade', 'y', 'm', 'week', 'd', 'h', 'min', 's', 'ms', 'μs', 'ns'];
+    angleShort          = ['deg', 'rad', 'gon'];
+    dataStorageShort    = ['bit', 'b', 'kb', 'mb', 'gb', 'tb', 'pb'];
+    energyShort         = ['c', 'hp', 'j', 'kj', 'wh', 'kwh', 'eV'];
+    // Get Full Label
+    lengthMetricFull    = ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
+    weightMetricFull    = ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
+    volumeMetricFull    = ['kiloliter', 'hectoliter', 'decaliter', 'liter', 'deciliter', 'centiliter', 'milliliter'];
+    lengthUsFull        = ['mile', 'yard', 'foot', 'inch'];
+    weightUsFull        = ['pound', 'ounce'];
+    volumeUsFull        = ['quatre', 'pint', 'cup', 'fluid ounce'];
+    temperatureFull     = ['celsius', 'fahrenheit', 'kelvin'];
+    timeFull            = ['millennium', 'century', 'decade', 'year', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond', 'microsecond', 'Nanosecond'];
+    angleFull           = ['degree', 'radian', 'grad'];
+    dataStorageFull     = ['bit', 'byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte']
+    energyFull          = ['calorie', 'horsepower', 'joule', 'kilojoule', 'watt~hour', 'kilowatt~hour', 'electronVolt'];
+
+    // formulas.
     baseMeter = {
         //  Metric Sys.  
         // Length.      
@@ -55,35 +81,35 @@ export default class Converter {
         flOz: 33.814038638,         //  Fluid Ounce.
     };
 
-    baseDay = {
-        ns: 864e+11,                //  Nanosecond.
-        μs: 864e+8,                 //  Microsecond.
-        ms: 864e+5,                 //  Millisecond.
-        s: 86400,                   //  Second.
-        min: 1440,                  //  Minute.
-        h: 24,                      //  Hour.
-        d: 1,                       //  Day.
-        week: 0.1428571429,         //  Week.
-        m: 0.0328767123,            //  Month.
-        y: 0.0027378508,            //  Year.
-        decade: 0.2737851e-3,       //  Decade.
-        century: 0.2737851e-4,      //  Century.
-        millennium: 0.2737851e-5,   //  Millennium.
-    }
     dayToTime = {
-        ns: 1.157407407e-14,        //  Nanosecond.
-        μs: 1.157407407e-11,        //  Microsecond.
-        ms: 1.157407407e-8,         //  Millisecond.
-        s: 0.115741e-4,             //  Second.
-        min: 0.6944444e-3,          //  Minute.
-        h: 0.0416666667,            //  Hour.
+        millennium: 0.2737851e-5,   //  Millennium.
+        century: 0.2737851e-4,      //  Century.
+        decade: 0.2737851e-3,       //  Decade.
+        y: 0.0027378508,            //  Year.
+        m: 0.0328767123,            //  Month.
+        week: 0.1428571429,         //  Week.
         d: 1,                       //  Day.
-        week: 7,                    //  Week.
-        m: 30.416666667,            //  Month.
-        y: 365.25,                  //  Year.
-        decade: 3652.5,             //  Decade.
-        century: 36525,             //  Century.
+        h: 24,                      //  Hour.
+        min: 1440,                  //  Minute.
+        s: 86400,                   //  Second.
+        ms: 864e+5,                 //  Millisecond.
+        μs: 864e+8,                 //  Microsecond.
+        ns: 864e+11,                //  Nanosecond.
+    }
+    baseDay = {
         millennium: 365250,         //  Millennium.
+        century: 36525,             //  Century.
+        decade: 3652.5,             //  Decade.
+        y: 365.25,                  //  Year.
+        m: 30.416666667,            //  Month.
+        week: 7,                    //  Week.
+        d: 1,                       //  Day.
+        h: 0.0416666667,            //  Hour.
+        min: 0.6944444e-3,          //  Minute.
+        s: 0.115741e-4,             //  Second.
+        ms: 1.157407407e-8,         //  Millisecond.
+        μs: 1.157407407e-11,        //  Microsecond.
+        ns: 1.157407407e-14,        //  Nanosecond.
     }
 
     baseByte = {
@@ -137,96 +163,68 @@ export default class Converter {
     }
 
     convertToMetric = (n, u) => this.baseMeter[u] * n;
-    metricSystem (n, u) {
+    metricSystem (num, unit) {
         // Meter / Gram / Liter
         // Square Meter = return**2
         // Cubic Meter = return**3
-        const bM = this.convertToMetric(n, u);
         const arr = [];
-        for (let i = 3; i > -4; i--) arr.push(bM*10**i);
+        for (let i = 3; i > -4; i--) {
+            arr.push(this.baseMeter[unit]*num * 10**i);
+        }
         return arr.reverse();
     }
 
-    UsSystem (n, u, t) {
+    UsSystem (num, unit, variant) {
         // Mile / Yard / Foot / Inch
         // Square U = return**2 (length)
         // Cubic  U = return**3 (length)
-        const bM = this.convertToMetric(n, u);
+        const bM = this.convertToMetric(num, unit);
         const arr = [];
         for (const u in this.meterToUs) arr.push(this.meterToUs[u] * bM)
         return {
             'l': arr.slice(0, 4),
             'w': arr.slice(4, 6),
             'v': arr.slice(6, 10)
-        }[t]
+        }[variant]
     }
 
-    temperature(n, u) {
-        if (!u) return [NaN, NaN, NaN]
+    temperature (num, unit) {
+        if (!unit) return [NaN, NaN, NaN]
         // Celsius / Fahrenheit / Kelvin
-        return this.temperatureFormulas[u](n);
+        return this.temperatureFormulas[unit](num);
     }
 
-    convertToDay = (n, u) => this.baseDay[u] * n;
-    time (n, u) {
-        // Nanosecond microsecond millisecond second minute hour day week month year decade century millennium
-        const bT = this.convertToDay(n, u);
-        const arr = [];
-        for (const u in this.dayToTime) arr.push(this.dayToTime[u] * bT)
-        return arr;
-    }
-
-    angle = (n, u) => {
-        if (!u) return [NaN, NaN, NaN]
+    angle (num, unit) {
+        if (!unit) return [NaN, NaN, NaN]
         // Degree Radian Grad
-        return this.angleFormulas[u](n); 
+        return this.angleFormulas[unit](num); 
     }
 
-    convertToByte = (n, u) => this.baseByte[u] * n;
-    dataStorage = (n, u) => {
+    time (num, unit) {
+        // Nanosecond microsecond millisecond second minute hour day week month year decade century millennium
+        const arr = [];
+        for (const u in this.dayToTime) {
+            arr.push(this.dayToTime[u] * this.baseDay[unit] * num)
+        }
+        return arr;
+    }
+
+    dataStorage (num, unit) {
         // Bit Byte Kilobyte Megabyte Gigabyte Terabyte Petabyte
-        const bB = this.convertToByte(n, u);
         const arr = [];
-        for (const u in this.byteToDataStorage) arr.push(this.byteToDataStorage[u] * bB)
+        for (const u in this.byteToDataStorage) {
+            arr.push(this.byteToDataStorage[u] * this.baseByte[unit] * num)
+        }
         return arr;
     }
 
-    convertToKj = (n, u) => this.baseKj[u] * n;
-    energy = (n, u) => {
+    energy (num, unit) {
         // Calorie Horsepower joule kilojoule (Watt per hour) (Kilowatt per hour) electronVolt
-        const bkj = this.convertToKj(n, u);
         const arr = [];
-        for (const u in this.kjToEnergy) arr.push(this.kjToEnergy[u] * bkj)
+        for (const u in this.kjToEnergy) {
+            arr.push(this.kjToEnergy[u] * this.baseKj[unit] * num)
+        }
         return arr;
     }
 
-    // Get Short Label.
-    getLengthMetric = () => ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
-    getWeightMetric = () => ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
-    getVolumeMetric = () => ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
-    getLengthUs = () => ['mile', 'yd', 'ft', 'in'];
-    getWeightUs = () => ['pd', 'oz'];
-    getVolumeUs = () => ['qt', 'pt', 'cp', 'flOz'];
-    getTemperature = () => ['c', 'f', 'k'];
-    getTime = () => ['ns', 'μs', 'ms', 's', 'min', 'h', 'd', 'week', 'm', 'y', 'decade', 'century', 'millennium']
-    getAngle = () => ['deg', 'rad', 'gon'];
-    getDataStorage = () => ['bit', 'b', 'kb', 'mb', 'gb', 'tb', 'pb'];
-    getEnergy = () => ['c', 'hp', 'j', 'kj', 'wh', 'kwh', 'eV'];
-    // Get Full Label
-    getLengthMetricFull = () => ['kilometer', 'hectometer', 'decameter', 'meter', 'decimeter', 'centimeter', 'millimeter'];
-    getWeightMetricFull = () => ['kilogram', 'hectogram', 'decagram', 'gram', 'decigram', 'centigram', 'milligram'];
-    getVolumeMetricFull = () => ['kiloliter', 'hectoliter', 'decaliter', 'liter', 'deciliter', 'centiliter', 'milliliter'];
-    getLengthUsFull = () => ['mile', 'yard', 'foot', 'inch'];
-    getWeightUsFull = () => ['pound', 'ounce'];
-    getVolumeUsFull = () => ['quatre', 'pint', 'cup', 'fluid ounce'];
-    getTemperatureFull = () => ['celsius', 'fahrenheit', 'kelvin'];
-    getTimeFull = () => ['Nanosecond', 'microsecond', 'millisecond', 'second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade', 'century', 'millennium']
-    getAngleFull = () => ['degree', 'radian', 'grad'];
-    getDataStorageFull = () => ['bit', 'byte', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte']
-    getEnergyFull = () => ['calorie', 'horsepower', 'joule', 'kilojoule', 'watt~hour', 'kilowatt~hour', 'electronVolt'];
 }
-
-
-// Bugs:
-// Fix Time.
-// Test Energy.

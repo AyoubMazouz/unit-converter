@@ -7,37 +7,22 @@ const InputField = ({ input, setInput, setDropDown, tab }) => {
 
     const units = [
         [
-            c.getLengthMetricFull().concat(c.getLengthUsFull()),
-            c.getLengthMetric().concat(c.getLengthUs()),
+            c.lengthMetricFull.concat(c.lengthUsFull),
+            c.lengthMetricShort.concat(c.lengthUsShort),
         ],
         [
-            c.getWeightMetricFull().concat(c.getWeightUsFull()),
-            c.getWeightMetric().concat(c.getWeightUs()),
+            c.weightMetricFull.concat(c.weightUsFull),
+            c.weightMetricShort.concat(c.weightUsShort),
         ],
         [
-            c.getVolumeMetricFull().concat(c.getVolumeUsFull()),
-            c.getVolumeMetric().concat(c.getVolumeUs()),
+            c.volumeMetricFull.concat(c.volumeUsFull),
+            c.volumeMetricShort.concat(c.volumeUsShort),
         ],
-        [
-            c.getTemperatureFull(),
-            c.getTemperature(),
-        ],
-        [
-            c.getTimeFull(),
-            c.getTime(),
-        ],
-        [
-            c.getAngleFull(),
-            c.getAngle(),
-        ],
-        [
-            c.getDataStorageFull(),
-            c.getDataStorage(),
-        ],
-        [
-            c.getEnergyFull(),
-            c.getEnergy(),
-        ],
+        [ c.temperatureFull, c.temperatureShort ],
+        [ c.timeFull, c.timeShort ],
+        [ c.angleFull, c.angleShort ],
+        [ c.dataStorageFull, c.dataStorageShort ],
+        [ c.energyFull, c.energyShort ],
     ]
 
 
