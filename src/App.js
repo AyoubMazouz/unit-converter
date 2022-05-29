@@ -15,14 +15,10 @@ function App() {
 	return (
 		<div className="flex flex-col justify-center items-center space-y-4 pt-36 xl:mx-24">
 
-
-
-
 			<InputField input={input} setInput={setInput} setDropDown={setDropDown} tab={tab} />
 			<Tabs tab={tab} setTab={setTab} setInput={setInput} setDropDown={setDropDown} />
 			<Table input={input} dropDown={dropDown} tab={tab} />
 			<Details />
-
 
 		</div>
 	);

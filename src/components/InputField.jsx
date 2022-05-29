@@ -1,4 +1,3 @@
-import { useState, useEffect, useDebugValue } from 'react';
 import Converter from '../converter';
 
 
@@ -34,6 +33,10 @@ const InputField = ({ input, setInput, setDropDown, tab }) => {
         [
             c.getDataStorageFull(),
             c.getDataStorage(),
+        ],
+        [
+            c.getEnergyFull(),
+            c.getEnergy(),
         ],
     ]
 

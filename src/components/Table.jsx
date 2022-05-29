@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Converter from '../converter';
 
 
-const Table = ({ input, dropDown, tab }) => {
+export default function Table ({ input, dropDown, tab }) {
 
     const converter = new Converter();
 
@@ -60,6 +60,13 @@ const Table = ({ input, dropDown, tab }) => {
                     c.dataStorage(i, u)
                 ])
             },
+            () => {
+                setOutPut([
+                    c.getEnergyFull(),
+                    c.getEnergy(),
+                    c.energy(i, u)
+                ])
+            },
         ];
 
         funcs[tab]();
@@ -81,16 +88,11 @@ const Table = ({ input, dropDown, tab }) => {
     )
 }
 
-export default Table;
-
-
 const FullTable = ({ dropDown, outPut }) => {
 
     return (
-
         <table className='hidden lg:block'>
             <thead className='bg-emerald-500 border-emerald-700 border-b-[3px]'>
-
                 <tr className='text-left text-sm font-semibold tracking-wider capitalize'>
                     {outPut[0].map((v, i) =>
                         <th key={i}
@@ -98,7 +100,6 @@ const FullTable = ({ dropDown, outPut }) => {
                         >{v}</th>
                     )}
                 </tr>
-
             </thead>
             <tbody className='bg-gray-100 border-b-[2px] text-sm font-semibold'>
                 <tr>
@@ -113,8 +114,6 @@ const FullTable = ({ dropDown, outPut }) => {
                     )
                     }
                 </tr>
-
-
             </tbody>
         </table>
 
